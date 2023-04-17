@@ -1,0 +1,25 @@
+Docker File using golang alipne image,
+
+FROM golang:alpine
+RUN mkdir /app
+ADD . /app
+WORKDIR /app
+
+## Add this go mod download command to pull in any dependencies
+RUN go mod download
+
+## build with the necessary go libraries.
+RUN go build -o main .
+
+## start command which triggers binary executable
+CMD ["/app/main"]
+
+-------------------------------------------------------------
+
+Commands:
+
+docker build -f Dockerfile -t go-app:v1 .
+docker run -d go-app:v1
+docker history go-app:v1
+docker tag go-app:v1 poorvib/go-app:v1
+docker push poorvib/go-app:v1
