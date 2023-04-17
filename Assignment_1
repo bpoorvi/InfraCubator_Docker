@@ -1,0 +1,5 @@
+ docker run -d --name nginx_con nginx
+ docker run -d --name nginx_con1 -p 8080:80 nginx
+ sudo docker logs 11e22bc2 <<container id>>
+ docker run -it --name new_nginx_con nginx /bin/bash
+ docker stop 12bd4dd73663
