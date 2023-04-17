@@ -1,0 +1,14 @@
+Docker-compose.yaml
+
+version: "3"
+services:
+  app:
+    container_name: go-app-con
+    image: go-app
+    build:
+      context: .
+    ports:
+      - 8080:8080
+
+Docker-compose up
+Docker-compose down
