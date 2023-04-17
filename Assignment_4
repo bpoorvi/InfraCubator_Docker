@@ -1,4 +1,6 @@
 docker create volume my_volume
-docker run -d --name test_volume --mount source=my_volume,target=/app ubuntu:latest
-#Add a file to volume folder
-docker run -d --name test_volume1 --mount source=my_volume,target=/app ubuntu:latest
+docker run -d --name test_volume --mount source=my_volume,target=/app ubuntu:latest 
+sudo ls /var/lib/docker/volumes/my_volume/_data
+sudo touch /var/lib/docker/volumes/my_volume/_data/mycheck.txt
+docker run -ti --name test_volume_ro --mount source=my_volume,target=/app ubuntu:latest /bin/bash
+ls app -> files created earlier in volume can be seen here.
