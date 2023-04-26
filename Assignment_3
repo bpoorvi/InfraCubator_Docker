@@ -18,4 +18,4 @@ COPY --from=builder /app .
 
 CMD ["./main"]
 
-observed docker file size reduced from 324 to 264 MB
+observed image size reduced from 324 to 264 MB
